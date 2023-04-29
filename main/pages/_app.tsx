@@ -13,7 +13,7 @@ import { useSelector } from "../src/store/Store";
 import { AppState } from "../src/store/Store";
 
 import BlankLayout from "../src/layouts/blank/BlankLayout";
-import FullLayout from "../src/layouts/full/FullLayout";
+import CustomizedLayout from "../src/layouts/customized/CustomizedLayout";
 
 import "../src/_mockApis";
 import "../src/utils/i18n";
@@ -39,6 +39,7 @@ const layouts: any = {
 };
 
 const MyApp = (props: MyAppProps) => {
+
   const {
     Component,
     emotionCache = clientSideEmotionCache,
@@ -46,7 +47,7 @@ const MyApp = (props: MyAppProps) => {
   }: any = props;
   const theme = ThemeSettings();
   const customizer = useSelector((state: AppState) => state.customizer);
-  const Layout = layouts[Component.layout] || FullLayout;
+  const Layout = layouts[Component.layout] || CustomizedLayout;
 
   return (
     <CacheProvider value={emotionCache}>

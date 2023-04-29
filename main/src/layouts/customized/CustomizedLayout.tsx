@@ -4,8 +4,8 @@ import { AppState } from "../../store/Store";
 import Header from "./vertical/header/Header";
 import Sidebar from "./vertical/sidebar/Sidebar";
 import Customizer from "./shared/customizer/Customizer";
-import Navigation from "../full/horizontal/navbar/Navigation";
-import HorizontalHeader from "../full/horizontal/header/Header";
+import Navigation from "./horizontal/navbar/Navigation";
+import HorizontalHeader from "./horizontal/header/Header";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -28,10 +28,10 @@ interface Props {
 }
 
 // const FullLayout: FC = ({children}) => {
-const FullLayout: React.FC<Props> = ({ children }) => {
+const CustomizedLayout: React.FC<Props> = ({ children }) => {
   const customizer = useSelector((state: AppState) => state.customizer);
   const theme = useTheme();
-  console.log('FullLayout')
+  console.log('CustomizedLayout')
   return (
     <MainWrapper>
       {/* ------------------------------------------- */}
@@ -82,4 +82,4 @@ const FullLayout: React.FC<Props> = ({ children }) => {
   );
 };
 
-export default FullLayout;
+export default CustomizedLayout;
